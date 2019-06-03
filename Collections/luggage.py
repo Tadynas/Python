@@ -27,3 +27,25 @@ def favorite_food(dict):
 
 print(favorite_food({"food":"Taco"}))
 #My favorite food is: Taco
+
+course_minutes = {"Python Basics": 232, "Django Basics": 237, "Flask Basics": 189, "Java Basics": 133}
+
+for course, minutes in course_minutes.items():
+    print("{} is {} minutes long".format(course, minutes))
+#Python Basics is 232 minutes long
+#Django Basics is 237 minutes long
+#Flask Basics is 189 minutes long
+#Java Basics is 133 minutes long
+
+print(list(enumerate("abc")))
+#[(0, 'a'), (1, 'b'), (2, 'c')]
+
+for index, letter in enumerate("ABCDEFK"):
+    print("{}: {}".format(index+1, letter)) #or start=1 and no index+1
+#1: A
+#2: B
+#3: C
+#4: D
+#5: E
+#6: F
+#7: K

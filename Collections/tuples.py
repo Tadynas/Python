@@ -78,3 +78,31 @@ for index, value in enumerate(my_list, start=1):
 
 for args in enumerate(my_list):
     print("{}. {}".format(*args))
+
+
+def stringcases(text):
+    return (text.upper(), text.lower(), text.title(), text[::-1])
+#('HELLO, TED', 'hello, ted', 'Hello, Ted', 'deT ,olleH')    
+
+print(stringcases("Hello, Ted"))
+
+def combo(first, second):
+    combo_list = list()
+    length = len(first)
+    i = 0   
+    while i < length:
+        combo_list.append((first[i], second[i]))
+        i += 1
+
+    return combo_list
+
+print(combo('abc', 'def'))
+#[('a', 'd'), ('b', 'e'), ('c', 'f')]
+def combo_second(first, second):
+    combo_list = list()
+    for i in range(len(first)):
+        combo_list.append((first[i], second[i])) 
+    return combo_list
+
+print(combo_second('abc', 'def'))
+#[('a', 'd'), ('b', 'e'), ('c', 'f')]

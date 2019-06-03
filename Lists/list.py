@@ -42,10 +42,8 @@ Press ENTER to add the end of the list
 def show_list():
 	clear_screen()	
 	print("Here's your list:")
-	i = 1
-	for item in shopping_list:
-		print("{}. {}".format(i, item))
-		i += 1
+	for index, item in enumerate(shopping_list, start=1):
+		print("{}. {}".format(index, item))
 	
 	print("-"*10)
 	
