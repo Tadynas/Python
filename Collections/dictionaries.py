@@ -106,3 +106,98 @@ def word_count_second(text):
 
 print(word_count_second("As soon as possible"))
 #{'as': 2, 'soon': 1, 'possible': 1}
+
+#summary
+def num_teachers(teacher):
+    return len(teacher)
+
+print(num_teachers({'Andrew Chalkley': ['jQuery Basics', 'Node.js Basics'],  'Kenneth Love': ['Python Basics', 'Python Collections']}))
+#2
+
+def num_courses(teacher):
+    course_amount = 0
+    for courses in teacher.values():
+        course_amount += len(courses)
+
+    return(course_amount)
+
+print(num_courses({'Andrew Chalkley': ['jQuery Basics', 'Node.js Basics'],  'Kenneth Love': ['Python Basics', 'Best code Ever']}))
+
+def courses(teacher):
+    course_list = list()
+    for course in teacher.values():
+        course_list += course
+    return course_list
+
+print(courses({'Andrew Chalkley': ['jQuery Basics', 'Node.js Basics'],  'Kenneth Love': ['Python Basics', 'Best code Ever']}))
+#['jQuery Basics', 'Node.js Basics', 'Python Basics', 'Best code Ever']
+
+def most_courses(teacher):
+    most_courses_teacher = ""
+    max_courses = -1
+    for teach, course_list in teacher.items():
+        if(len(course_list) > max_courses):
+            max_courses = len(course_list)
+            most_courses_teacher = teach
+    return most_courses_teacher
+
+print(most_courses({'Andrew Chalkley': ['jQuery Basics', 'Node.js Basics'],  'Kenneth Love': ['Python Basics', 'Best code Ever']}))
+
+def stats(teacher):
+    teacher_stats = list()
+    for item in teacher.items():
+        temp = list()
+        temp.append(item[0])
+        temp.append(len(item[1]))
+        teacher_stats.append(temp)
+    return teacher_stats  
+
+print(stats({'Andrew Chalkley': ['jQuery Basics', 'Node.js Basics'],  'Kenneth Love': ['Python Basics', 'Best code Ever']}))
+#[['Andrew Chalkley', 2], ['Kenneth Love', 2]]
+
+print("#"*20)
+
+#Second version
+def num_teachers_second(teachers):
+    return(len(teachers))
+
+print(num_teachers_second({'Andrew Chalkley': ['jQuery Basics', 'Node.js Basics'],  'Kenneth Love': ['Python Basics', 'Python Collections']}))
+#2    
+
+def num_courses_second(teachers):
+    courses_amount = 0
+    for value in teachers.values():
+        courses_amount += len(value)
+    return courses_amount
+
+print(num_courses_second({'Andrew Chalkley': ['jQuery Basics', 'Node.js Basics'],  'Kenneth Love': ['Python Basics', 'Best code Ever']}))
+
+def courses_second(teachers):
+    course_list = list()
+    for value in teachers.values():
+        course_list.extend(value)
+    return course_list
+
+print(courses_second({'Andrew Chalkley': ['jQuery Basics', 'Node.js Basics'],  'Kenneth Love': ['Python Basics', 'Best code Ever']}))
+
+def most_courses_second(teachers):
+    max_courses = -1
+    most_courses_teacher = ""
+    for teacher, course_list in teachers.items():
+        if max_courses < len(course_list):
+            max_courses = len(course_list)
+            most_courses_teacher = teacher
+    return most_courses_teacher        
+
+print(most_courses_second({'Andrew Chalkley': ['jQuery Basics', 'Node.js Basics'],  'Kenneth Love': ['Python Basics', 'Best code Ever']}))
+        
+def stats_second(teachers):
+    teacher_stats = list()
+    for key in teachers.keys():
+        temp = list()
+        temp.append(key)
+        temp.append(len(teachers[key]))
+        teacher_stats.append(temp)
+    return teacher_stats
+
+print(stats_second({'Andrew Chalkley': ['jQuery Basics', 'Node.js Basics'],  'Kenneth Love': ['Python Basics', 'Best code Ever']}))
