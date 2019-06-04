@@ -51,30 +51,52 @@ def get_moves(player):
         moves.remove("DOWN")
     return moves
 
-monster, door, player = get_locations()
+def draw_map(player):
+    print(" _"*5)
+    tile = "|{}"
 
-while True:
-    valid_moves = get_moves(player)
-    clear_screen()
-    print("Welcome to the dungeon!")
-    print("You're currently in room {}".format(player)) # fill with player position
-    print("You can move {}".format(", ".join(valid_moves))) # fill with available moves
-    print("Enter QUIT to quit")
+    for cell in CELLS:
+        x, y = cell
+        if x < 4:
+            line_end = ""
+            if cell == player:
+                output = tile.format("X")
+            else:
+                output = tile.format("_")
+        else:
+            line_end = "\n"
+            if cell == player:
+                output = tile.format("X|")
+            else:
+                output = tile.format("_|")
+        print(output, end=line_end)
 
-    move = input("> ")
-    move = move.upper()
+def game_loop():
+    monster, door, player = get_locations()
 
-    if move == "QUIT":
-        break
+    while True:
+        draw_map(player)
+        valid_moves = get_moves(player)
 
-    if move in valid_moves:
-        player = move_player(player, move)
-    else:
-        print("\n ** Walls are hard! Don't run into them! **\n")
-        continue
+        print("You're currently in room {}".format(player)) # fill with player position
+        print("You can move {}".format(", ".join(valid_moves))) # fill with available moves
+        print("Enter QUIT to quit")
+
+        move = input("> ")
+        move = move.upper()
+
+        if move == "QUIT":
+            break
+
+        if move in valid_moves:
+            player = move_player(player, move)
+        else:
+            input("\n ** Walls are hard! Don't run into them! **\n")
+            continue
+        clear_screen()
     
-    # good move -> change player position
-    # bad move -> don't change anything
-    # on the door -> they win
-    # on the monster -> they lose
-    # otherwise -> loop back around
+clear_screen()
+print("Welcome to the dungeon!")
+input("Press return to start!")
+clear_screen()
+game_loop()
